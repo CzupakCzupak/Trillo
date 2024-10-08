@@ -12,6 +12,12 @@
   align-items: center;
   justify-content: center;
 
+  @media only screen and (max-width: $bp-smallest) {
+    order: 1;
+    flex: 0 0 100%;
+    background-color: var(--color-grey-light-2);
+  }
+
   &__input {
     font-family: inherit;
     font-size: inherit;
@@ -182,6 +188,12 @@
       justify-content: center;
       padding: 2rem;
     }
+
+    @media only screen and (max-width: $bp-small) {
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem;
+    }
   }
 
   &__link:hover {
@@ -192,6 +204,13 @@
     height: 1.75rem;
     margin-right: 2rem;
     fill: currentColor;
+
+    @media only screen and (max-width: $bp-small) {
+      margin-right: 0;
+      margin-bottom: 0.7rem;
+      width: 1.5rem;
+      height: 1.5rem;
+    }
   }
 }
 
@@ -224,17 +243,34 @@
   align-items: center;
   border-bottom: 1px solid var(--color-grey-light-2);
 
+  @media only screen and (max-width: $bp-smallest) {
+    flex-wrap: wrap;
+    & > * {
+      flex: 0 0 50%;
+    }
+  }
+
   &__heading {
     font-size: 2.25rem;
     font-weight: 300;
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 1.5rem 3rem;
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 1.8rem;
+      padding: 1.25rem 2rem;
+    }
   }
 
   &__stars {
     margin-right: auto;
     display: flex;
+
+    @media only screen and (max-width: $bp-smallest) {
+      order: 1;
+      padding-left: 2rem;
+    }
   }
 
   &__icon-location,
@@ -248,6 +284,11 @@
     display: flex;
     align-items: center;
     font-size: 1.2rem;
+
+    @media only screen and (max-width: $bp-smallest) {
+      justify-content: end;
+      padding-right: 2rem;
+    }
   }
 
   &__icon-location {
@@ -265,16 +306,35 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+
+    @media only screen and (max-width: $bp-small) {
+      padding: 0 1.5rem;
+    }
+
+    @media only screen and (max-width: $bp-smallest) {
+      order: 2;
+      margin-left: 0;
+      padding: 2rem;
+      flex: 0 0 25%;
+    }
   }
 
   &__rating-average {
     font-size: 2.25rem;
     font-weight: 300;
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 1.8rem;
+    }
   }
 
   &__rating-count {
     font-size: 0.8rem;
     text-transform: uppercase;
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 0.5rem;
+    }
   }
 }
 
@@ -344,6 +404,10 @@
   &__item {
     flex: 0 0 50%;
     margin-bottom: 0.7rem;
+
+    @media only screen and (max-width: $bp-smallest) {
+      flex: 0 0 100%;
+    }
   }
 
   &__item::before {
@@ -355,15 +419,18 @@
     margin-right: 0.7rem;
 
     //Older browsers
-    // background-image: url("../img/SVG/chevron-thin-right.svg");
-    // background-size: cover;
+    background-image: url("../img/SVG/chevron-thin-right.svg");
+    background-size: cover;
 
     //Newer browsers - masks
-    background-color: var(--color-primary);
-    -webkit-mask-image: url("../img/SVG/chevron-thin-right.svg");
-    -webkit-mask-size: cover;
-    mask-image: url("../img/SVG/chevron-thin-right.svg");
-    mask-size: cover;
+    @supports (-webkit-mask-image: url() or (mask-image: url())) {
+      background-color: var(--color-primary);
+      -webkit-mask-image: url("../img/SVG/chevron-thin-right.svg");
+      -webkit-mask-size: cover;
+      mask-image: url("../img/SVG/chevron-thin-right.svg");
+      mask-size: cover;
+      background-image: none;
+    }
   }
 }
 
@@ -381,6 +448,7 @@
   }
 
   &__friends {
+    display: flex;
   }
 
   &__photo {
@@ -403,6 +471,12 @@
   margin-bottom: 3.5rem;
   position: relative;
   overflow: hidden;
+  width: 100%;
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 2rem;
+    margin-bottom: 3rem;
+  }
 
   &__text {
     margin-bottom: 2rem;
@@ -461,6 +535,10 @@
 .cta {
   padding: 3.5rem 0;
   text-align: center;
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 2.5rem 0;
+  }
 
   &__book-now {
     font-size: 1.5rem;
